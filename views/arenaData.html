@@ -1,0 +1,230 @@
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Arena Helper</a>
+    <ul class="nav">
+      <li class="active"><a href="#">2v2</a></li>
+      <li class="active"><a href="#">3v3</a></li>
+      <li class="active"><a href="#">5v5</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container arenadata">
+
+	<div class="row-fluid diff">
+		<h2>Difficulity : 
+			<span ng-class="{'easy' : calculatedDiff() == 'Easy', 'med' : calculatedDiff() == 'Medium', 'hard' : calculatedDiff() == 'Hard', 'vhard' : calculatedDiff() == 'Very Hard'}">{{calculatedDiff()}}</span></h2>
+		<h4>
+			Games Won : {{calculatedDiffPercent()}}%
+		</h4>
+		<hr/>
+	</div>
+
+	<div class="row-fluid">
+		<div class="arena-data-classes clearfix">
+			<div class="span4 class-block-data class-block" ng-repeat="class in data.classes">
+					<img ng-src="./images/{{class.class}}.png" ng-class="{selected:class.killTarget}"/>
+					<div>{{class.spec}}</div>
+				</div>
+			</div>
+	</div>
+
+	<hr/>
+
+	<div class="row-fluid">
+	<div class="span8">
+
+		<div class="row-fluid">
+			<div class="span12">
+				<span>Wins : {{data.wins}}</span>
+			</div>
+			</div>
+			<div class="row-fluid">
+			<div class="span12">
+				<span>Loss : {{data.loss}}</span>
+			</div>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span12">
+				<span>Their Common Kill Target : Mage</span>
+			</div>
+		</div>
+
+		<div class="row-fluid">
+			<button class="offset9 span3 btn btn-success" ng-click="showAddGame = true" href="#myModal" role="button" data-toggle="modal">Add a game</button>
+		</div>
+
+		<hr/>
+
+		<!-- Modal -->
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel">Add a Arena Game</h3>
+		  </div>
+		  <div class="modal-body">
+		  	<div class="row-fluid">
+		  		<div class="span4">
+					<strong>Who won the game: </strong>
+				</div>
+				<div class="span4">
+					<label for="you-won">You won : </label><input id="you-won" type="radio" name="who-won" class="form-control">
+				</div>
+				<div class="span4">
+					<label for="you-lost">You Lost : </label><input id="you-lost" type="radio" name="who-won" class="form-control">
+				</div>
+		  	</div>
+		  	<div class="row-fluid">
+				<div class="span4">
+					<strong>Who did they kill first: </strong>
+				</div>
+				<div class="span8">
+					<select class="form-control">
+						<option value="noone">No one</option>
+						<option value="priest">Priest</option>
+						<option value="mage">Mage</option>
+						<option value="rogue">Rogue</option>
+					</select>
+				</div>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		    <button class="btn btn-primary">Add Game</button>
+		  </div>
+		</div>
+
+		<h4>Simular Games</h4>
+
+		<div class="row-fluid simular-game-container">
+			<div class="span2 class-block-data class-block" ng-repeat="class in data.classes">
+				<img width="32px" ng-src="./images/{{class.class}}.png" ng-class="{selected:class.killTarget}"/>
+				<div>{{class.spec}}</div>
+			</div>
+			
+			<table class="table offset1 span4">
+              <thead>
+                <tr>
+                  <th>Win</th>
+                  <th>Loss</th>
+                  <th>Kill Target</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>32</td>
+                  <td>10</td>
+                  <td>Mage</td>
+                </tr>
+              </tbody>
+            </table>
+		</div>
+
+		<hr/>
+
+		<div class="row-fluid simular-game-container">
+			<div class="span2 class-block-data class-block" ng-repeat="class in data.classes">
+				<img width="32px" ng-src="./images/{{class.class}}.png" ng-class="{selected:class.killTarget}"/>
+				<div>{{class.spec}}</div>
+			</div>
+			
+			<table class="table offset1 span4">
+              <thead>
+                <tr>
+                  <th>Win</th>
+                  <th>Loss</th>
+                  <th>Kill Target</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>32</td>
+                  <td>10</td>
+                  <td>Mage</td>
+                </tr>
+              </tbody>
+            </table>
+		</div>
+
+		<hr/>
+
+		<div class="row-fluid simular-game-container">
+			<div class="span2 class-block-data class-block" ng-repeat="class in data.classes">
+				<img width="32px" ng-src="./images/{{class.class}}.png" ng-class="{selected:class.killTarget}"/>
+				<div>{{class.spec}}</div>
+			</div>
+			
+			<table class="table offset1 span4">
+              <thead>
+                <tr>
+                  <th>Win</th>
+                  <th>Loss</th>
+                  <th>Kill Target</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>32</td>
+                  <td>10</td>
+                  <td>Mage</td>
+                </tr>
+              </tbody>
+            </table>
+		</div>
+
+		<hr/>
+
+		<div class="row-fluid simular-game-container">
+			<div class="span2 class-block-data class-block" ng-repeat="class in data.classes">
+				<img width="32px" ng-src="./images/{{class.class}}.png" ng-class="{selected:class.killTarget}"/>
+				<div>{{class.spec}}</div>
+			</div>
+			
+			<table class="table offset1 span4">
+              <thead>
+                <tr>
+                  <th>Win</th>
+                  <th>Loss</th>
+                  <th>Kill Target</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>32</td>
+                  <td>10</td>
+                  <td>Mage</td>
+                </tr>
+              </tbody>
+            </table>
+		</div>
+
+
+	</div>
+
+	<div class="span4 comment-wrapper">
+
+		<div ng-repeat="comment in data.comments" class="comment-container row-fluid">
+				<div class="span5">
+					<span class="name">{{comment.user}}</span>
+					<span class="date">{{comment.date}}</span>
+
+				</div>
+				<div class="span7 comment">{{comment.comment}}</div>
+		</div>
+
+		<hr/>
+		<div class="row-fluid">
+			<textarea class="span12 form-control new-comment"></textarea>
+		</div>
+		
+		<div class="row-fluid add-comment">
+			<button class="offset6 span6 btn btn-success" ng-click="addComment($event)">Add Comment</button>
+		</div>
+	</div>
+		
+	</div>
+</div>
+
+
+
